@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.example.fastlanedemo.R
+import com.example.fastlanedemo.main.extensions.superNavHostFragment
 
 abstract class BaseFragment<T : ViewBinding>(@LayoutRes private val layoutResId: Int) :
     Fragment(layoutResId) {
@@ -45,7 +48,9 @@ abstract class BaseFragment<T : ViewBinding>(@LayoutRes private val layoutResId:
 
     abstract fun getViewBinding(): T
 
-    protected open fun handleBackPressed() = Unit
+    protected open fun handleBackPressed() {
+        findNavController().navigateUp()
+    }
 
     private fun createViewForFragment(): View {
         _binding = getViewBinding()

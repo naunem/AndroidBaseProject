@@ -1,17 +1,23 @@
 package com.example.fastlanedemo
 
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.fastlanedemo.databinding.ActivityMainBinding
 import com.example.fastlanedemo.main.extensions.setupWithNavController
 import com.example.fastlanedemo.main.extensions.viewBinding
+import com.example.fastlanedemo.main.ui.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private var currentNavController: LiveData<NavController>? = null
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         // Whenever the selected controller changes, setup the action bar.
         controller.observe(this, { navController ->
-            setupActionBarWithNavController(navController)
+//            navController.add
         })
-        currentNavController = controller
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        println("xxxxxx onSupportNavigateUp: ${currentNavController?.value}")
-        return currentNavController?.value?.navigateUp() ?: false
     }
 }

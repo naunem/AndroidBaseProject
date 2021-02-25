@@ -20,5 +20,11 @@
         android:id="@+id/homeDetailFragment"
         android:name="com.example.fastlanedemo.main.ui.home.detail.HomeDetailFragment"
         android:label="HomeDetailFragment"
-        tools:layout="@layout/fragment_home_detail" />
+        tools:layout="@layout/fragment_home_detail">
+        <action
+            android:id="@+id/action_homeDetailFragment_to_registration_nav_graph"
+            app:destination="@id/registration_nav_graph" />
+    </fragment>
+
+    <include app:graph="@navigation/registration_nav_graph" />
 </navigation>
