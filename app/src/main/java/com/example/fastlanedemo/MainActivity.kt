@@ -1,16 +1,6 @@
 package com.example.fastlanedemo
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.fastlanedemo.databinding.ActivityMainBinding
 import com.example.fastlanedemo.main.extensions.setupWithNavController
 import com.example.fastlanedemo.main.extensions.viewBinding

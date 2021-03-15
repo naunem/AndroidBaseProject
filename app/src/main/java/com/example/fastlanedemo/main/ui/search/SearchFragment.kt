@@ -19,8 +19,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     private fun initListeners() {
         binding.btnSearch.setOnClickListener {
-            val action = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(binding.edtSearch.text.toString())
+            val action =
+                SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(binding.edtSearch.text.toString())
             navigate(action)
         }
     }
+
 }

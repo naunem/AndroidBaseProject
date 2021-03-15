@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
-import com.example.fastlanedemo.R
-import com.example.fastlanedemo.main.extensions.superNavHostFragment
 
 abstract class BaseFragment<T : ViewBinding>(@LayoutRes private val layoutResId: Int) :
     Fragment(layoutResId) {
@@ -39,6 +36,16 @@ abstract class BaseFragment<T : ViewBinding>(@LayoutRes private val layoutResId:
             viewLifecycleOwner,
             backPressedCallback
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        backPressedCallback.isEnabled = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        backPressedCallback.isEnabled = false
     }
 
     override fun onDestroyView() {
